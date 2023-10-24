@@ -17,6 +17,7 @@ export const HeaderLinks: THeaderLink[] = [
     title: "Blog",
     path: "/blog",
   },
+
   {
     title: "Contact",
     path: "/contact",
