@@ -7,7 +7,6 @@ const FacebookIcon = (props: JSX.IntrinsicElements["svg"]) => {
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
-      strokeWidth={1.5}
       className="w-6 h-6 cursor-pointer hover:text-pinkC"
       {...props}
     >

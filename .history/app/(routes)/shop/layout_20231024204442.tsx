@@ -5,6 +5,8 @@ import React, { Fragment } from "react";
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <Fragment>
+      {/* Banner */}
+
       <Thumbnail
         title="Shop"
         desc="Happiness is receiving you ordered online!"

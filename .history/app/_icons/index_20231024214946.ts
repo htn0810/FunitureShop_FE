@@ -16,7 +16,6 @@ import StarIcon from "./StarIcon";
 import PhoneIcon from "./PhoneIcon";
 import MailIcon from "./MailIcon";
 import LocationIcon from "./LocationIcon";
-import YoutubeIcon from "./YoutubeIcon";
 
 export {
   ArrowLeftIcon,
@@ -37,5 +36,4 @@ export {
   PhoneIcon,
   MailIcon,
   LocationIcon,
-  YoutubeIcon,
 };
