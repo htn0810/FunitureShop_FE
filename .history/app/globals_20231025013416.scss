@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Reset css
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+Remove default margin
+*/
+* {
+  margin: 0;
+}
+
+body {
+  .ant-checkbox.ant-wave-target,
+  .ant-checkbox-input {
+    @apply hover:border-darkYellow focus:bg-darkYellow;
+  }
+}
