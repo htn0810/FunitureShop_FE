@@ -9,7 +9,7 @@ const TrashIcon = (props: TSpecialIcon) => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={props.className}
+      className="w-4 h-4"
     >
       <path
         strokeLinecap="round"

@@ -20,6 +20,6 @@ body {
     @apply hover:border-darkYellow bg-darkYellow border-darkYellow;
   }
   thead[class*="ant-table-thead"] th {
-    @apply bg-gray-300 text-center text-lg font-semibold  #{!important};
+    @apply bg-gray-800 #{!important};
   }
 }

@@ -68,12 +68,12 @@ const Header = () => {
       </Modal>
       {/* Show Modal Cart */}
       <Modal showModal={showModalCart} setShowModal={setShowModalCart}>
-        <CartSideBar closeModal={setShowModalCart} />
+        <CartSideBar closeModal={setShowMenu} />
         <ButtonClose closeModal={setShowModalCart} />
       </Modal>
       {/* Show Modal Wishlist */}
       <Modal showModal={showModalWishlist} setShowModal={setShowModalWishlist}>
-        <WishlistSidebar closeModal={setShowModalWishlist} />
+        <WishlistSidebar />
         <ButtonClose closeModal={setShowModalWishlist} />
       </Modal>
     </header>

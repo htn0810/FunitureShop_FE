@@ -6,11 +6,7 @@ import { TrashIcon } from "@/app/_icons";
 import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/navigation";
 
-const CartSideBar = ({
-  closeModal,
-}: {
-  closeModal: (value: boolean) => void;
-}) => {
+const CartSideBar = () => {
   const router = useRouter();
   const handleRemoveProduct = () => {};
   return (
@@ -38,9 +34,9 @@ const CartSideBar = ({
               </div>
               <button
                 onClick={handleRemoveProduct}
-                className="px-2 md:px-4 rounded-sm"
+                className="px-2 md:px-6 rounded-sm bg-softYellow hover:bg-darkYellow"
               >
-                <TrashIcon className="w-4 h-4 text-black hover:text-red-500" />
+                <TrashIcon />
               </button>
             </div>
           ))}
@@ -51,11 +47,7 @@ const CartSideBar = ({
       </div>
       <button
         className="mt-8 w-full py-3 font-tertiary text-base md:text-lg font-semibold text-white rounded-lg bg-darkYellow hover:opacity-80"
-        onClick={() => {
-          console.log("click");
-          router.push("/cart");
-          closeModal(false);
-        }}
+        onClick={() => router.push("/cart")}
       >
         View Cart
       </button>

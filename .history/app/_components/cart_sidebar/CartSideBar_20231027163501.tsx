@@ -6,11 +6,7 @@ import { TrashIcon } from "@/app/_icons";
 import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/navigation";
 
-const CartSideBar = ({
-  closeModal,
-}: {
-  closeModal: (value: boolean) => void;
-}) => {
+const CartSideBar = () => {
   const router = useRouter();
   const handleRemoveProduct = () => {};
   return (
@@ -54,7 +50,6 @@ const CartSideBar = ({
         onClick={() => {
           console.log("click");
           router.push("/cart");
-          closeModal(false);
         }}
       >
         View Cart
