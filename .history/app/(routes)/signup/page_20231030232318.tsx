@@ -2,10 +2,6 @@
 import Link from "next/link";
 import React, { Fragment } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import axios from "axios";
-import { BASE_NAME, BE_URL } from "@/app/_constants/general.const";
-import { toast } from "react-toastify";
-import { useRouter } from "next/navigation";
 
 interface IFormInput {
   firstName: string;
@@ -15,7 +11,6 @@ interface IFormInput {
 }
 
 const Page = () => {
-  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -23,27 +18,6 @@ const Page = () => {
   } = useForm<IFormInput>();
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     console.log(data);
-    axios
-      .post(`${BE_URL}/auth/signup`, data)
-      .then(function (response) {
-        console.log(response);
-        if (response.status === 200) {
-          toast("Register successfully!", {
-            type: "success",
-            autoClose: 2000,
-            pauseOnHover: false,
-          });
-          router.push(BASE_NAME!);
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-        toast(error, {
-          type: "error",
-          autoClose: 2000,
-          pauseOnHover: false,
-        });
-      });
   };
   return (
     <Fragment>
@@ -80,7 +54,7 @@ const Page = () => {
                   required: "Last name is required",
                   maxLength: { value: 20, message: "Maximum character is 20" },
                 })}
-                placeholder="Last Name"
+                placeholder="First Name"
                 className={`w-full px-3 py-4 border border-solid focus:border-darkYellow outline-none ${
                   errors.lastName?.message ? "border-red-500" : ""
                 }`}
@@ -94,52 +68,19 @@ const Page = () => {
           </div>
           <div className="mb-6">
             <input
-              {...register("email", {
-                required: "Email is required",
-                pattern: {
-                  value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
-                  message: "Invalid email",
-                },
-              })}
-              placeholder="Email"
-              className={`w-full px-3 py-4 border border-solid focus:border-darkYellow outline-none ${
-                errors.email?.message ? "border-red-500" : ""
-              }`}
+              type="text"
+              placeholder="Email address"
+              className="w-full px-3 py-4 border border-solid focus:border-darkYellow outline-none"
             />
-            {errors.email?.message && (
-              <p className="mt-2 text-red-500 float-left">
-                {errors.email?.message}
-              </p>
-            )}
           </div>
           <div className="mb-6">
             <input
-              {...register("password", {
-                required: "Email is required",
-                minLength: {
-                  value: 6,
-                  message: "Minimum character is 6",
-                },
-                maxLength: {
-                  value: 20,
-                  message: "Maximum character is 20",
-                },
-              })}
+              type="text"
               placeholder="Password"
-              className={`w-full px-3 py-4 border border-solid focus:border-darkYellow outline-none ${
-                errors.password?.message ? "border-red-500" : ""
-              }`}
+              className="w-full px-3 py-4 border border-solid focus:border-darkYellow outline-none"
             />
-            {errors.password?.message && (
-              <p className="mt-2 text-red-500 float-left">
-                {errors.password?.message}
-              </p>
-            )}
           </div>
-          <button
-            type="submit"
-            className="w-full py-3 text-base font-bold text-center text-white bg-black hover:bg-darkYellow"
-          >
+          <button className="w-full py-3 text-base font-bold text-center text-white bg-black hover:bg-darkYellow">
             Create
           </button>
           <span className="block mt-7 text-graySoftC">

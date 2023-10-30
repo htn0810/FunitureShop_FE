@@ -31,7 +31,6 @@ const Page = () => {
           toast("Register successfully!", {
             type: "success",
             autoClose: 2000,
-            pauseOnHover: false,
           });
           router.push(BASE_NAME!);
         }
@@ -40,8 +39,7 @@ const Page = () => {
         console.log(error);
         toast(error, {
           type: "error",
-          autoClose: 2000,
-          pauseOnHover: false,
+          delay: 2000,
         });
       });
   };

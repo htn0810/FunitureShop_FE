@@ -61,6 +61,9 @@ export const UserLinks: TUserLink[] = [
   },
 ];
 
-export const BASE_NAME = process.env.REACT_APP_BASENAME;
-export const BE_URL = process.env.REACT_APP_BE_URL;
-export const REDIRECT_URL = process.env.REACT_APP_REDIRECT_URL;
+export interface IFormInputSignUp {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+}

@@ -2,10 +2,6 @@
 import Link from "next/link";
 import React, { Fragment } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import axios from "axios";
-import { BASE_NAME, BE_URL } from "@/app/_constants/general.const";
-import { toast } from "react-toastify";
-import { useRouter } from "next/navigation";
 
 interface IFormInput {
   firstName: string;
@@ -15,7 +11,6 @@ interface IFormInput {
 }
 
 const Page = () => {
-  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -23,27 +18,6 @@ const Page = () => {
   } = useForm<IFormInput>();
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     console.log(data);
-    axios
-      .post(`${BE_URL}/auth/signup`, data)
-      .then(function (response) {
-        console.log(response);
-        if (response.status === 200) {
-          toast("Register successfully!", {
-            type: "success",
-            autoClose: 2000,
-            pauseOnHover: false,
-          });
-          router.push(BASE_NAME!);
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-        toast(error, {
-          type: "error",
-          autoClose: 2000,
-          pauseOnHover: false,
-        });
-      });
   };
   return (
     <Fragment>
