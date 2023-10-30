@@ -2,10 +2,6 @@
 import Link from "next/link";
 import React, { Fragment } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import axios from "axios";
-import { BACKEND_URL, BASENAME } from "@/app/_constants/general.const";
-import { toast } from "react-toastify";
-import { useRouter } from "next/navigation";
 
 interface IFormInput {
   firstName: string;
@@ -15,34 +11,12 @@ interface IFormInput {
 }
 
 const Page = () => {
-  const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    console.log(data);
-    axios
-      .post(`${BACKEND_URL}/auth/signup` as string, data)
-      .then(function (response) {
-        if (response.status === 200) {
-          toast("Register successfully!", {
-            autoClose: 2000,
-            type: "success",
-          });
-          router.push(BASENAME!);
-        }
-        console.log(response);
-      })
-      .catch(function (error) {
-        toast(error, {
-          autoClose: 2000,
-          type: "error",
-        });
-      });
-  };
-
+  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
   return (
     <Fragment>
       <div className="my-[120px] bg-white text-center">
@@ -54,7 +28,7 @@ const Page = () => {
           <span className="block mt-2 mb-9 text-graySoftC">
             Please create user account detail bellow.
           </span>
-          <div className="grid grid-cols-2 gap-x-3">
+          <div className="mb-6 grid grid-cols-2 gap-x-3">
             <div>
               <input
                 {...register("firstName", {
@@ -79,10 +53,14 @@ const Page = () => {
                 {...register("lastName", {
                   required: "This field is required!",
                   maxLength: { value: 12, message: "Max length is 12" },
+                  pattern: {
+                    value: /^[A-Za-z]+$/i,
+                    message: "Name is not include number",
+                  },
                 })}
                 placeholder="Last name"
                 className={`w-full px-3 py-4 border border-solid focus:border-darkYellow outline-none ${
-                  errors.lastName?.message ? "border-red-500" : "text-black"
+                  errors.firstName?.message ? "border-red-500" : "text-black"
                 }`}
               />
               <p
@@ -94,29 +72,17 @@ const Page = () => {
               </p>
             </div>
           </div>
-          <div className="mt-6">
+          <div className="mb-6">
             <input
               {...register("email", {
                 required: "This field is required!",
-                pattern: {
-                  value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
-                  message: "Invalid email!",
-                },
+                pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
               })}
               placeholder="Email address"
-              className={`w-full px-3 py-4 border border-solid focus:border-darkYellow outline-none ${
-                errors.email?.message ? "border-red-500" : "text-black"
-              }`}
+              className="w-full px-3 py-4 border border-solid focus:border-darkYellow outline-none"
             />
-            <p
-              className={`mt-2 float-left ${
-                errors.email?.message ? "text-red-500" : "text-black"
-              }`}
-            >
-              {errors.email?.message}
-            </p>
           </div>
-          <div className="mt-6">
+          <div className="mb-6">
             <input
               {...register("password", {
                 required: "This field is required!",
@@ -124,21 +90,12 @@ const Page = () => {
                 maxLength: { value: 12, message: "Maximum character is 12" },
               })}
               placeholder="Password"
-              className={`w-full px-3 py-4 border border-solid focus:border-darkYellow outline-none ${
-                errors.password?.message ? "border-red-500" : "text-black"
-              }`}
+              className="w-full px-3 py-4 border border-solid focus:border-darkYellow outline-none"
             />
-            <p
-              className={`mt-2 float-left ${
-                errors.password?.message ? "text-red-500" : "text-black"
-              }`}
-            >
-              {errors.password?.message}
-            </p>
           </div>
           <button
             type="submit"
-            className="w-full mt-6 py-3 text-base font-bold text-center text-white bg-black hover:bg-darkYellow"
+            className="w-full py-3 text-base font-bold text-center text-white bg-black hover:bg-darkYellow"
           >
             Create
           </button>

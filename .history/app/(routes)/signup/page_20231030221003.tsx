@@ -28,6 +28,7 @@ const Page = () => {
       .then(function (response) {
         if (response.status === 200) {
           toast("Register successfully!", {
+            hideProgressBar: true,
             autoClose: 2000,
             type: "success",
           });
@@ -36,10 +37,7 @@ const Page = () => {
         console.log(response);
       })
       .catch(function (error) {
-        toast(error, {
-          autoClose: 2000,
-          type: "error",
-        });
+        console.log(error);
       });
   };
 
@@ -104,9 +102,7 @@ const Page = () => {
                 },
               })}
               placeholder="Email address"
-              className={`w-full px-3 py-4 border border-solid focus:border-darkYellow outline-none ${
-                errors.email?.message ? "border-red-500" : "text-black"
-              }`}
+              className="w-full px-3 py-4 border border-solid focus:border-darkYellow outline-none"
             />
             <p
               className={`mt-2 float-left ${
@@ -124,9 +120,7 @@ const Page = () => {
                 maxLength: { value: 12, message: "Maximum character is 12" },
               })}
               placeholder="Password"
-              className={`w-full px-3 py-4 border border-solid focus:border-darkYellow outline-none ${
-                errors.password?.message ? "border-red-500" : "text-black"
-              }`}
+              className="w-full px-3 py-4 border border-solid focus:border-darkYellow outline-none"
             />
             <p
               className={`mt-2 float-left ${

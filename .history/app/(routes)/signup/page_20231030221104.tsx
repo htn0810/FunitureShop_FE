@@ -28,6 +28,7 @@ const Page = () => {
       .then(function (response) {
         if (response.status === 200) {
           toast("Register successfully!", {
+            hideProgressBar: true,
             autoClose: 2000,
             type: "success",
           });
@@ -36,10 +37,7 @@ const Page = () => {
         console.log(response);
       })
       .catch(function (error) {
-        toast(error, {
-          autoClose: 2000,
-          type: "error",
-        });
+        console.log(error);
       });
   };
 
@@ -125,7 +123,7 @@ const Page = () => {
               })}
               placeholder="Password"
               className={`w-full px-3 py-4 border border-solid focus:border-darkYellow outline-none ${
-                errors.password?.message ? "border-red-500" : "text-black"
+                errors.lastName?.message ? "border-red-500" : "text-black"
               }`}
             />
             <p

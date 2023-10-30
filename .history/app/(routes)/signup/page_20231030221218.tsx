@@ -38,7 +38,7 @@ const Page = () => {
       .catch(function (error) {
         toast(error, {
           autoClose: 2000,
-          type: "error",
+          type: "success",
         });
       });
   };

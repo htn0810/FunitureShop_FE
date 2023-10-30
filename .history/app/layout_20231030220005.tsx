@@ -6,7 +6,8 @@ import Footer from "./_modules/footer/Footer";
 import Header from "./_modules/header";
 import SubLayout from "./_layout/SubLayout";
 import AOSInit from "./_utils/aos";
-import ToastProvider from "./_utils/toast";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -32,13 +33,12 @@ export default function RootLayout({
     <html lang="en">
       <AOSInit />
       <body className={josefin.className}>
-        <ToastProvider>
-          <MainLayout>
-            <Header />
-            <SubLayout>{children}</SubLayout>
-            <Footer />
-          </MainLayout>
-        </ToastProvider>
+        <MainLayout>
+          <Header />
+          <SubLayout>{children}</SubLayout>
+          <Footer />
+          <ToastContainer />
+        </MainLayout>
       </body>
     </html>
   );

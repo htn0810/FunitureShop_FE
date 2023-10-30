@@ -3,9 +3,7 @@ import Link from "next/link";
 import React, { Fragment } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import axios from "axios";
-import { BACKEND_URL, BASENAME } from "@/app/_constants/general.const";
-import { toast } from "react-toastify";
-import { useRouter } from "next/navigation";
+import { BACKEND_URL } from "@/app/_constants/general.const";
 
 interface IFormInput {
   firstName: string;
@@ -15,7 +13,6 @@ interface IFormInput {
 }
 
 const Page = () => {
-  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -24,22 +21,12 @@ const Page = () => {
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     console.log(data);
     axios
-      .post(`${BACKEND_URL}/auth/signup` as string, data)
+      .post(`${BACKEND_URL}/auth/signup`, data)
       .then(function (response) {
-        if (response.status === 200) {
-          toast("Register successfully!", {
-            autoClose: 2000,
-            type: "success",
-          });
-          router.push(BASENAME!);
-        }
         console.log(response);
       })
       .catch(function (error) {
-        toast(error, {
-          autoClose: 2000,
-          type: "error",
-        });
+        console.log(error);
       });
   };
 
@@ -104,9 +91,7 @@ const Page = () => {
                 },
               })}
               placeholder="Email address"
-              className={`w-full px-3 py-4 border border-solid focus:border-darkYellow outline-none ${
-                errors.email?.message ? "border-red-500" : "text-black"
-              }`}
+              className="w-full px-3 py-4 border border-solid focus:border-darkYellow outline-none"
             />
             <p
               className={`mt-2 float-left ${
@@ -124,9 +109,7 @@ const Page = () => {
                 maxLength: { value: 12, message: "Maximum character is 12" },
               })}
               placeholder="Password"
-              className={`w-full px-3 py-4 border border-solid focus:border-darkYellow outline-none ${
-                errors.password?.message ? "border-red-500" : "text-black"
-              }`}
+              className="w-full px-3 py-4 border border-solid focus:border-darkYellow outline-none"
             />
             <p
               className={`mt-2 float-left ${

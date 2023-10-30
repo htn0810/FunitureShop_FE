@@ -32,13 +32,13 @@ export default function RootLayout({
     <html lang="en">
       <AOSInit />
       <body className={josefin.className}>
-        <ToastProvider>
-          <MainLayout>
+        <MainLayout>
+          <ToastProvider>
             <Header />
             <SubLayout>{children}</SubLayout>
             <Footer />
-          </MainLayout>
-        </ToastProvider>
+          </ToastProvider>
+        </MainLayout>
       </body>
     </html>
   );
