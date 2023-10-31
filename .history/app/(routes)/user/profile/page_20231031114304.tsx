@@ -3,10 +3,10 @@ import React, { Fragment, useState } from "react";
 import Image from "next/image";
 import Avatar from "@/app/_assets/images/banner-style-2-img-1.jpg";
 import { EditIcon } from "@/app/_icons";
-import { useAppSelector } from "@/app/_custom_hooks/redux.hook";
+import { useSelector } from "react-redux";
 
 const Page = () => {
-  const account = useAppSelector((state) => state.account);
+  const account = useSelector((state) => console.log(state));
   console.log(account);
   const [disableAddress, setDisableAddress] = useState<boolean>(true);
   return (

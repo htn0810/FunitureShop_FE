@@ -11,7 +11,7 @@ const initialState: Account = {
   firstName: "",
   lastName: "",
   email: "",
-  role: "",
+  role: '',
 };
 
 const AccountSlice = createSlice({
@@ -28,7 +28,7 @@ const AccountSlice = createSlice({
       state.firstName = "";
       state.lastName = "";
       state.email = "";
-      state.role = "";
+      state.role = '';
     },
   },
 });

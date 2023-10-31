@@ -7,7 +7,7 @@ import { useAppSelector } from "@/app/_custom_hooks/redux.hook";
 
 const Page = () => {
   const account = useAppSelector((state) => state.account);
-  console.log(account);
+
   const [disableAddress, setDisableAddress] = useState<boolean>(true);
   return (
     <Fragment>

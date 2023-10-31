@@ -1,11 +1,9 @@
 "use client";
-import { BASE_NAME, BE_URL } from "@/app/_constants/general.const";
+import { BE_URL } from "@/app/_constants/general.const";
 import axios from "axios";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React, { Fragment } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { toast } from "react-toastify";
 
 interface IInputLogin {
   email: string;
@@ -13,7 +11,6 @@ interface IInputLogin {
 }
 
 const Page = () => {
-  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -26,12 +23,6 @@ const Page = () => {
       .post(`${BE_URL}/auth/login`, data)
       .then((response) => {
         console.log(response);
-        toast("Login successfully!", {
-          type: "success",
-          pauseOnHover: false,
-          autoClose: 2000,
-        });
-        router.push(BASE_NAME!);
       })
       .catch((err) => {
         console.log(err);

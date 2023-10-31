@@ -4,14 +4,14 @@ type Account = {
   firstName: string;
   lastName: string;
   email: string;
-  role: string;
+  roles: string[];
 };
 
 const initialState: Account = {
   firstName: "",
   lastName: "",
   email: "",
-  role: "",
+  roles: [],
 };
 
 const AccountSlice = createSlice({
@@ -22,13 +22,13 @@ const AccountSlice = createSlice({
       state.firstName = action.payload.firstName;
       state.lastName = action.payload.lastName;
       state.email = action.payload.email;
-      state.role = action.payload.role;
+      state.roles = action.payload.roles;
     },
     deleteAccount: (state) => {
       state.firstName = "";
       state.lastName = "";
       state.email = "";
-      state.role = "";
+      state.roles = [];
     },
   },
 });

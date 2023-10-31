@@ -6,8 +6,8 @@ import axios from "axios";
 import { BASE_NAME, BE_URL } from "@/app/_constants/general.const";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import { setAccount } from "@/app/_store/account.slice";
 import { useAppDispatch } from "@/app/_custom_hooks/redux.hook";
-import { deleteAccount, setAccount } from "@/app/_store/account.slice";
 
 interface IFormInput {
   firstName: string;
@@ -38,10 +38,10 @@ const Page = () => {
           });
           dispatch(
             setAccount({
-              email: data.email,
               firstName: data.firstName,
               lastName: data.lastName,
-              role: "USER",
+              email: data.email,
+              roles: ["USER"],
             })
           );
           router.push(BASE_NAME!);
@@ -126,7 +126,7 @@ const Page = () => {
           <div className="mb-6">
             <input
               {...register("password", {
-                required: "Password is required",
+                required: "Email is required",
                 minLength: {
                   value: 6,
                   message: "Minimum character is 6",

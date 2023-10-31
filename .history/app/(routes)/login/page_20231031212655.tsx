@@ -1,11 +1,7 @@
 "use client";
-import { BASE_NAME, BE_URL } from "@/app/_constants/general.const";
-import axios from "axios";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React, { Fragment } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { toast } from "react-toastify";
+import { useForm } from "react-hook-form";
 
 interface IInputLogin {
   email: string;
@@ -13,35 +9,16 @@ interface IInputLogin {
 }
 
 const Page = () => {
-  const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<IInputLogin>();
-
-  const onSubmit: SubmitHandler<IInputLogin> = (data) => {
-    console.log(data);
-    axios
-      .post(`${BE_URL}/auth/login`, data)
-      .then((response) => {
-        console.log(response);
-        toast("Login successfully!", {
-          type: "success",
-          pauseOnHover: false,
-          autoClose: 2000,
-        });
-        router.push(BASE_NAME!);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
   return (
     <Fragment>
       <div className="my-[120px] bg-white text-center">
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          action=""
           className="mx-auto w-[350px] md:w-[544px] px-4 md:px-14 py-[50px] shadow-md"
         >
           <h3 className="text-3xl font-bold text-black">Sign In</h3>
@@ -70,27 +47,10 @@ const Page = () => {
           </div>
           <div className="mb-6">
             <input
-              {...register("password", {
-                required: "Password is required",
-                minLength: {
-                  value: 6,
-                  message: "Minimum character is 6",
-                },
-                maxLength: {
-                  value: 20,
-                  message: "Maximum character is 20",
-                },
-              })}
+              type="text"
               placeholder="Password"
-              className={`w-full px-3 py-4 border border-solid focus:border-darkYellow outline-none ${
-                errors.password?.message ? "border-red-500" : ""
-              }`}
+              className="w-full px-3 py-4 border border-solid focus:border-darkYellow outline-none"
             />
-            {errors.password?.message && (
-              <p className="mt-2 text-red-500 float-left">
-                {errors.password?.message}
-              </p>
-            )}
           </div>
           <button
             type="submit"

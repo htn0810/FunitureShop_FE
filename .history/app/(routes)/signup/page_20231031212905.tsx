@@ -41,7 +41,7 @@ const Page = () => {
               email: data.email,
               firstName: data.firstName,
               lastName: data.lastName,
-              role: "USER",
+              roles: ["USER"],
             })
           );
           router.push(BASE_NAME!);

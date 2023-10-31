@@ -7,7 +7,8 @@ import Header from "./_modules/header";
 import SubLayout from "./_layout/SubLayout";
 import AOSInit from "./_utils/aos";
 import ToastProvider from "./_utils/toast";
-import { Providers } from "./_store/provider";
+import store from "./_store/store";
+import { Provider } from "react-redux";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -33,7 +34,7 @@ export default function RootLayout({
     <html lang="en">
       <AOSInit />
       <body className={josefin.className}>
-        <Providers>
+        <Provider store={store}>
           <ToastProvider>
             <MainLayout>
               <Header />
@@ -41,7 +42,7 @@ export default function RootLayout({
               <Footer />
             </MainLayout>
           </ToastProvider>
-        </Providers>
+        </Provider>
       </body>
     </html>
   );

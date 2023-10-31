@@ -41,7 +41,7 @@ const Page = () => {
               email: data.email,
               firstName: data.firstName,
               lastName: data.lastName,
-              role: "USER",
+              roles: ["USER"],
             })
           );
           router.push(BASE_NAME!);
@@ -126,7 +126,7 @@ const Page = () => {
           <div className="mb-6">
             <input
               {...register("password", {
-                required: "Password is required",
+                required: "Email is required",
                 minLength: {
                   value: 6,
                   message: "Minimum character is 6",
