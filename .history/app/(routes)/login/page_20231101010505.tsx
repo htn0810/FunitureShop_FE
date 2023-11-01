@@ -9,7 +9,6 @@ import { toast } from "react-toastify";
 import { jwtDecode } from "jwt-decode";
 import { useAppDispatch } from "@/app/_custom_hooks/redux.hook";
 import { setAccount } from "@/app/_store/account.slice";
-import Cookies from "universal-cookie";
 
 interface IInputLogin {
   email: string;
@@ -19,7 +18,6 @@ interface IInputLogin {
 const Page = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const cookies = new Cookies();
   const {
     register,
     handleSubmit,
@@ -33,9 +31,6 @@ const Page = () => {
       .then((response) => {
         console.log(response);
         const decoded: any = jwtDecode(response.data?.token);
-        cookies.set("jwt token", response.data?.token, {
-          expires: new Date(decoded?.exp * 1000),
-        });
         dispatch(setAccount(decoded.user));
         toast("Login successfully!", {
           type: "success",

@@ -97,7 +97,7 @@ const Banner = () => {
             <button
               className={`rounded-lg px-5 py-2 text-center text-sm text-white ${
                 translate === -100 ? "animate-fadeInUpLate" : ""
-              } bg-darkYellow hover:opacity-80 md:px-10 md:py-4 md:text-base`}
+              } bg-pinkC hover:opacity-80 md:px-10 md:py-4 md:text-base`}
             >
               Shop now
             </button>

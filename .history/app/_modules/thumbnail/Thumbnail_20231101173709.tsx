@@ -10,14 +10,14 @@ interface IThumbnailProps {
 const Thumbnail = (props: IThumbnailProps) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-5 gap-x-8 h-[200px] mb-20 bg-lightYellow px-[15px] md:px-[40px] xl:px-[90px]  mx-[-15px] md:mx-[-40px] xl:mx-[-90px]">
-      <div className="flex flex-col items-start justify-center md:col-start-1 md:col-end-3 w-full h-full">
+      <div className="flex flex-col items-start justify-center col-start-1 col-end-3 w-full h-full">
         <h1 className="text-2xl xl:text-4xl font-semibold text-shadow shadow-gray-600">
           {props.title}
         </h1>
         <span className="text-base md:text-lg">{props.desc}</span>
       </div>
       {props.hasInput && (
-        <div className="md:col-start-3 md:col-end-6 flex flex-1 items-center">
+        <div className="col-start-3 col-end-6 flex flex-1 items-center">
           <input
             type="text"
             placeholder="Search here..."

@@ -32,7 +32,6 @@ const Page = () => {
                 id="firstName"
                 type="text"
                 placeholder="Hello"
-                defaultValue={account?.firstName || "Hello"}
                 className="w-full px-6 py-2 rounded-sm outline-none border border-grayC mt-2 text-black"
               />
             </div>
@@ -47,7 +46,6 @@ const Page = () => {
                 id="lastName"
                 type="text"
                 placeholder="Hello"
-                defaultValue={account?.lastName || "Hello"}
                 className="w-full px-6 py-2 rounded-sm outline-none border border-grayC mt-2"
               />
             </div>
@@ -60,7 +58,6 @@ const Page = () => {
               id="email"
               type="text"
               placeholder="Hello"
-              defaultValue={account?.email || "Hello"}
               className="w-full px-6 py-2 rounded-sm outline-none border border-grayC mt-2 text-black"
             />
           </div>

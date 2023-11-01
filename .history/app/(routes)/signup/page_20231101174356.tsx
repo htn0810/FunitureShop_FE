@@ -46,7 +46,6 @@ const Page = () => {
               role: "USER",
             })
           );
-          cookies.set("jwt token", response.data?.token);
           router.push(BASE_NAME!);
         }
       })

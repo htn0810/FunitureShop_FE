@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import LogoBlack from "@/app/_assets/images/logo_black.png";
 import Link from "next/link";
-import { BASE_NAME, HeaderLinks } from "../../_constants/general.const";
+import { HeaderLinks } from "../../_constants/general.const";
 import Modal from "@/app/_components/modal";
 import CartSideBar from "@/app/_components/cart_sidebar";
 import ButtonClose from "../../_components/button_close/index";
@@ -12,9 +12,6 @@ import WishlistSidebar from "@/app/_components/wishlist_sidebar";
 import MenuSidebar from "../../../.history/app/_components/menu_sidebar/MenuSidebar_20231027001316";
 import { useRouter } from "next/navigation";
 import LogoutIcon from "@/app/_icons/LogoutIcon";
-import { useAppDispatch, useAppSelector } from "@/app/_custom_hooks/redux.hook";
-import Cookies from "universal-cookie";
-import { deleteAccount } from "@/app/_store/account.slice";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
@@ -22,15 +19,6 @@ const Header = () => {
   const [showModalWishlist, setShowModalWishlist] = useState<boolean>(false);
 
   const router = useRouter();
-  const account = useAppSelector((state) => state.account);
-  const dispatch = useAppDispatch();
-  const cookies = new Cookies({ path: "/" });
-
-  const handleLogout = () => {
-    cookies.remove("jwt token");
-    dispatch(deleteAccount());
-    router.push(BASE_NAME!);
-  };
   return (
     <header className="fixed top-0 left-0 right-0 z-50 shadow-sm">
       <div className="flex w-full items-center justify-between bg-softYellow p-[15px] md:px-[40px] md:py-[25px] xl:px-[90px]">
@@ -64,12 +52,7 @@ const Header = () => {
           <span onClick={() => router.push("/user/profile")}>
             <UserIcon />
           </span>
-          {account.email !== "" && (
-            <LogoutIcon
-              className="w-6 h-6 cursor-pointer hover:text-pinkC"
-              onClick={handleLogout}
-            />
-          )}
+          <LogoutIcon className="w-6 h-6" />
           <div
             onClick={() => setShowMenu((prev) => !prev)}
             className="block lg:hidden"

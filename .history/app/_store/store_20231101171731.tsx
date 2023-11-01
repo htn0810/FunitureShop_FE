@@ -1,12 +1,11 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { persistReducer } from "redux-persist";
+import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import AccountSlice from "./account.slice";
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["account"],
 };
 
 const reducer = combineReducers({

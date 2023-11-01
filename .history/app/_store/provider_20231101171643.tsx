@@ -10,9 +10,7 @@ let persistor = persistStore(store);
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        {children}
-      </PersistGate>
+      <PersistGate persistor={persistor}>{children}</PersistGate>
     </Provider>
   );
 }

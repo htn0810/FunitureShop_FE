@@ -60,7 +60,6 @@ const Page = () => {
               id="email"
               type="text"
               placeholder="Hello"
-              defaultValue={account?.email || "Hello"}
               className="w-full px-6 py-2 rounded-sm outline-none border border-grayC mt-2 text-black"
             />
           </div>

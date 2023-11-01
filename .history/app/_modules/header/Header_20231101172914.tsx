@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import LogoBlack from "@/app/_assets/images/logo_black.png";
 import Link from "next/link";
-import { BASE_NAME, HeaderLinks } from "../../_constants/general.const";
+import { HeaderLinks } from "../../_constants/general.const";
 import Modal from "@/app/_components/modal";
 import CartSideBar from "@/app/_components/cart_sidebar";
 import ButtonClose from "../../_components/button_close/index";
@@ -24,12 +24,11 @@ const Header = () => {
   const router = useRouter();
   const account = useAppSelector((state) => state.account);
   const dispatch = useAppDispatch();
-  const cookies = new Cookies({ path: "/" });
+  const cookies = new Cookies();
 
   const handleLogout = () => {
     cookies.remove("jwt token");
     dispatch(deleteAccount());
-    router.push(BASE_NAME!);
   };
   return (
     <header className="fixed top-0 left-0 right-0 z-50 shadow-sm">
