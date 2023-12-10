@@ -621,6 +621,29 @@
         "tslib": "^2.4.0"
       }
     },
+    "node_modules/@types/aos": {
+      "version": "3.0.6",
+      "resolved": "https://registry.npmjs.org/@types/aos/-/aos-3.0.6.tgz",
+      "integrity": "sha512-H6RbMQXco8pZWhh7Wjpqrd9ISVwH5EId0hM5vxebcDiK6HgIizbVj1718Q8PQLQ7cVBsxTK0rbVy0T3dR6eoow==",
+      "dev": true
+    },
+<<<<<<< HEAD
+    "node_modules/@types/cookie": {
+      "version": "0.5.3",
+      "resolved": "https://registry.npmjs.org/@types/cookie/-/cookie-0.5.3.tgz",
+      "integrity": "sha512-SLg07AS9z1Ab2LU+QxzU8RCmzsja80ywjf/t5oqw+4NSH20gIGlhLOrBDm1L3PBWzPa4+wkgFQVZAjE6Ioj2ug=="
+    },
+    "node_modules/@types/hoist-non-react-statics": {
+      "version": "3.3.4",
+      "resolved": "https://registry.npmjs.org/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.4.tgz",
+      "integrity": "sha512-ZchYkbieA+7tnxwX/SCBySx9WwvWR8TaP5tb2jRAzwvLb/rWchGw3v0w3pqUbUvj0GCwW2Xz/AVPSk6kUGctXQ==",
+      "dependencies": {
+        "@types/react": "*",
+        "hoist-non-react-statics": "^3.3.0"
+      }
+    },
+=======
+>>>>>>> master
     "node_modules/@types/json5": {
       "version": "0.0.29",
       "resolved": "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz",
@@ -6052,6 +6075,7 @@
       "integrity": "sha512-H6RbMQXco8pZWhh7Wjpqrd9ISVwH5EId0hM5vxebcDiK6HgIizbVj1718Q8PQLQ7cVBsxTK0rbVy0T3dR6eoow==",
       "dev": true
     },
+<<<<<<< HEAD
     "@types/cookie": {
       "version": "0.5.3",
       "resolved": "https://registry.npmjs.org/@types/cookie/-/cookie-0.5.3.tgz",
@@ -6066,6 +6090,8 @@
         "hoist-non-react-statics": "^3.3.0"
       }
     },
+=======
+>>>>>>> master
     "@types/json5": {
       "version": "0.0.29",
       "resolved": "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz",
