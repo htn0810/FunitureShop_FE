@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Reset css
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+Remove default margin
+*/
+* {
+  margin: 0;
+}
+
+body {
+  .ant-checkbox-checked .ant-checkbox-inner {
+    @apply hover:border-darkYellow bg-darkYellow border-darkYellow;
+  }
+  thead[class*="ant-table-thead"] th {
+    @apply bg-gray-300 text-center text-lg font-semibold  #{!important};
+  }
+  .ant-menu-title-content {
+    @apply text-xl font-medium;
+  }
+}
