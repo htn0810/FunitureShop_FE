@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Reset css
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+Remove default margin
+*/
+* {
+  margin: 0;
+}
+
+body {
+  .ant-checkbox-checked .ant-checkbox-inner {
+    @apply hover:border-darkYellow bg-darkYellow border-darkYellow;
+  }
+  thead[class*="ant-table-thead"] th {
+    @apply bg-gray-300 text-center text-lg font-semibold  #{!important};
+  }
+  .ant-menu-title-content {
+    @apply text-base font-medium;
+  }
+  .ant-menu-item {
+    @apply py-6;
+    &.ant-menu-item-selected {
+      @apply text-white bg-darkYellow;
+    }
+  }
+  .ant-modal-content {
+    @apply bg-transparent shadow-none #{!important};
+  }
+  .ant-spin .ant-spin-dot-item {
+    @apply bg-yellow-300;
+  }
+  .ant-select-auto-complete.ant-select-focused {
+    @apply hover:border-darkYellow;
+  }
+}
